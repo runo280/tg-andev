@@ -2,7 +2,7 @@ name: Python application
 
 on:
   schedule:
-    - cron:  '0 */3 * * *' # every two hour
+    - cron:  '0 */3 * * *' # every three hour
   push:
     branches:
       - master
