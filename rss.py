@@ -44,7 +44,7 @@ def read_article_feed(feed_url):
                 link = get_redirect_url(link)
 
             if not is_article_in_db(link):
-                add_article_to_db(title, link, date, True)
+                add_article_to_db(title, link, date, False)
     except:
         telegram.msg_to_admin('❌ Failed to parse:\n' + feed_url)
 
