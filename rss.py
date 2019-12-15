@@ -17,7 +17,7 @@ def is_url_ok(url):
             return True
         else:
             print('StatusCode is {}: {} '.format(r.status_code, url))
-            telegram.msg_to_admin('❌ StatusCode is ' + str(r.status_code) + ':\n' + url)
+            #telegram.msg_to_admin('❌ StatusCode is ' + str(r.status_code) + ':\n' + url)
             return True
     except requests.ConnectionError:
         print('Failed to connect: ' + url)
