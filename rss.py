@@ -21,7 +21,7 @@ def is_url_ok(url):
             return True
     except requests.ConnectionError:
         print('Failed to connect: ' + url)
-        telegram.msg_to_admin('❌ Failed to connect:\n' + url)
+        #telegram.msg_to_admin('❌ Failed to connect:\n' + url)
         return False
 
 
@@ -46,7 +46,8 @@ def read_article_feed(feed_url):
             if not is_article_in_db(link):
                 add_article_to_db(title, link, date, False)
     except:
-        telegram.msg_to_admin('❌ Failed to parse:\n' + feed_url)
+        print()
+        #telegram.msg_to_admin('❌ Failed to parse:\n' + feed_url)
 
 
 def get_redirect_url(url):
