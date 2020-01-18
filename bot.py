@@ -11,5 +11,12 @@ if __name__ == '__main__':
         title = x['title']
         link = x['link']
         date = x['date']
-        telegram.send_article(title, link, date)
-        db.feeds.update_one({'link': link}, set_published_query)
+        send = telegram.send_article(title, link, date)
+        result = send.json()
+        if result['ok'] is True:
+            print('ok')
+            db.feeds.update_one({'link': link}, set_published_query)
+        else:
+            print('failed to publish')
+
+     
