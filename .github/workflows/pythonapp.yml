@@ -1,11 +1,11 @@
 name: Python application
 
-on:
-  schedule:
-    - cron:  '0 */3 * * *' # every three hour
-  push:
-    branches:
-      - master
+#on:
+#  schedule:
+#    - cron:  '0 */3 * * *' # every three hour
+#  push:
+#    branches:
+#      - master
 
 jobs:
   build:
