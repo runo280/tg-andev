@@ -1,8 +1,8 @@
-name: Python application
+name: Walk and Publish
 
 on:
-#  schedule:
-#    - cron:  '0 */3 * * *' # every three hour
+  schedule:
+    - cron:  '0 */3 * * *' # every three hour
   push:
     branches:
       - master
@@ -33,4 +33,4 @@ jobs:
           footer: ${{ secrets.footer }}
         run: |
           python rss.py
-#          python bot.py
+          python bot.py
