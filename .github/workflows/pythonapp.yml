@@ -1,4 +1,4 @@
-name: Walk and Publish
+name: Walk and Publish 
 
 on:
   schedule:
