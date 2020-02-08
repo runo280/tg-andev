@@ -1,11 +1,11 @@
 name: Python application
 
-#on:
+on:
 #  schedule:
 #    - cron:  '0 */3 * * *' # every three hour
-#  push:
-#    branches:
-#      - master
+  push:
+    branches:
+      - master
 
 jobs:
   build:
@@ -33,4 +33,4 @@ jobs:
           footer: ${{ secrets.footer }}
         run: |
           python rss.py
-          python bot.py
+#          python bot.py
