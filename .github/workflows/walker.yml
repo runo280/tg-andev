@@ -32,5 +32,5 @@ jobs:
           chat_id: ${{ secrets.chat_id }}
           footer: ${{ secrets.footer }}
         run: |
-          #python rss.py
+          python rss.py
           python bot.py
