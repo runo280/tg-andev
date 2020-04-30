@@ -1,5 +1,7 @@
 #android weekly
 http://us2.campaign-archive1.com/feed?u=887caf4f48db76fd91e20a06d&id=4eb677ad19
+#kotlin weekly
+https://us12.campaign-archive.com/feed/?u=f39692e245b94f7fb693b6d82&id=93b2272cb6
 http://adavis.info/feed
 http://alexzh.com/feed/
 http://andraskindler.com/feed.xml
