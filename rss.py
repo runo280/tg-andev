@@ -31,7 +31,7 @@ def read_article_feed(feed_url):
     try:
         feed = feedparser.parse(feed_url)
         print('Count is ' + str(len(feed['entries'])))
-        first_crawl = should_published()
+        first_crawl = should_published(feed_url)
         for article in feed['entries']:
             title = article['title']
             link = article['link']
