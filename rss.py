@@ -31,6 +31,7 @@ def read_article_feed(feed_url):
     try:
         feed = feedparser.parse(feed_url)
         print('Count is ' + str(len(feed['entries'])))
+        first_crawl = should_published()
         for article in feed['entries']:
             title = article['title']
             link = article['link']
@@ -44,7 +45,7 @@ def read_article_feed(feed_url):
                 link = get_redirect_url(link)
 
             if not is_article_in_db(link):
-                add_article_to_db(title, link, date, False)
+                add_article_to_db(title, link, date, first_crawl)
     except:
         print()
         #telegram.msg_to_admin('❌ Failed to parse:\n' + feed_url)
@@ -61,6 +62,14 @@ def is_article_in_db(url):
     else:
         return True
 
+def should_published(url):
+    query = {'link': url}
+    if db.urls.count_documents(query) == 0:
+        new_url = {'link': url}
+        x = db.urls.insert_one(new_url)
+        return True
+    else:
+        return False
 
 def add_article_to_db(title, link, date, is_pub):
     article = {'title': title, 'link': link, 'date': date, 'is_pub': is_pub}

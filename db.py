@@ -9,8 +9,10 @@ db_pass = os.environ['mpass']
 db_domain = os.environ['murl']
 db_name = 'android'
 db_feeds_collection = 'andev'
+db_url_collection = 'andev_url'
 db_url = db_url.format(user=db_user, pwd=db_pass, murl=db_domain)
 client = pymongo.MongoClient(db_url)
 
 database = client[db_name]
 feeds = database[db_feeds_collection]
+urls = database[db_url_collection]
