@@ -110,3 +110,7 @@ https://www.nan-labs.com/blog/category/mobile/feed/
 https://yarikx.github.io/feed.xml
 http://saulmm.github.io/atom.xml
 https://worldsnas.com/feed/
+https://www.rockandnull.com/rss/
+https://magdamiu.com/rss
+https://www.glureau.com/feed.xml
+https://sasikanth.dev/rss.xml
