@@ -117,3 +117,4 @@ https://sasikanth.dev/rss.xml
 https://alexzh.com/rss/
 https://johnoreilly.dev/atom.xml
 https://adambennett.dev/index.xml
+https://vladsonkin.com/feed/
