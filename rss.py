@@ -17,11 +17,11 @@ def is_url_ok(url):
             return True
         else:
             print('StatusCode is {}: {} '.format(r.status_code, url))
-            telegram.msg_to_admin('❌ StatusCode is ' + str(r.status_code) + ':\n' + url)
+            telegram.msg_to_admin('⚠️ StatusCode is ' + str(r.status_code) + ':\n' + url)
             return True
     except requests.ConnectionError:
         print('Failed to connect: ' + url)
-        telegram.msg_to_admin('❌ Failed to connect:\n' + url)
+        telegram.msg_to_admin('🚫 Failed to connect:\n' + url)
         return False
 
 
@@ -48,7 +48,7 @@ def read_article_feed(feed_url):
                 add_article_to_db(title, link, date, first_crawl)
     except():
         print()
-        telegram.msg_to_admin('❌ Failed to parse:\n' + feed_url)
+        telegram.msg_to_admin('⛔️ Failed to parse:\n' + feed_url)
 
 
 def get_redirect_url(url):
@@ -90,4 +90,4 @@ if __name__ == '__main__':
         print('Processing feed #' + str(index) + ' : ' + line)
         read_article_feed(line)
 
-    db.mark_as_read_all()
+    # db.mark_as_read_all()

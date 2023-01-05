@@ -18,5 +18,4 @@ if __name__ == '__main__':
             db.feeds.update_one({'link': link}, set_published_query)
         else:
             print('failed to publish')
-
-     
+            telegram.msg_to_admin('🚫 failed to publish: ' + ':\n' + link)
