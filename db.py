@@ -16,3 +16,11 @@ client = pymongo.MongoClient(db_url)
 database = client[db_name]
 feeds = database[db_feeds_collection]
 urls = database[db_url_collection]
+
+
+def mark_as_read_all():
+    unpublished_query = {'is_pub': False}
+    set_published_query = {'$set': {'is_pub': True}}
+    for x in feeds.find(unpublished_query):
+        link = x['link']
+        feeds.update_one({'link': link}, set_published_query)

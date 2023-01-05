@@ -1,11 +1,7 @@
-name: Walk and Publish 
+name: Forced Walk and Publish
 
 on:
-  schedule:
-    - cron:  '0 */3 * * *' # every three hour
-  push:
-    branches:
-      - master
+  workflow_dispatch:
 
 jobs:
   build:

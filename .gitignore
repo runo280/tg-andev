@@ -1,3 +1,6 @@
 .idea
 venv
 __pycache__
+.gitignore
+1001268302234
+poetry.lock

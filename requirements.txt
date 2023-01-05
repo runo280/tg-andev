@@ -1,8 +1,8 @@
-﻿certifi==2022.12.7
-chardet==3.0.4
-dnspython==1.16.0
-feedparser==5.2.1
-idna==2.8
-pymongo==3.10.0
-requests==2.22.0
+﻿certifi
+chardet
+dnspython
+feedparser
+idna
+pymongo
+requests
 urllib3

@@ -6,7 +6,7 @@ import telegram
 
 
 def get_feeds_url():
-    return [line.rstrip('\n') for line in open('feeds.txt')]
+    return [row.rstrip('\n') for row in open('feeds.txt')]
 
 
 def is_url_ok(url):
@@ -17,11 +17,11 @@ def is_url_ok(url):
             return True
         else:
             print('StatusCode is {}: {} '.format(r.status_code, url))
-            #telegram.msg_to_admin('❌ StatusCode is ' + str(r.status_code) + ':\n' + url)
+            telegram.msg_to_admin('❌ StatusCode is ' + str(r.status_code) + ':\n' + url)
             return True
     except requests.ConnectionError:
         print('Failed to connect: ' + url)
-        #telegram.msg_to_admin('❌ Failed to connect:\n' + url)
+        telegram.msg_to_admin('❌ Failed to connect:\n' + url)
         return False
 
 
@@ -46,9 +46,9 @@ def read_article_feed(feed_url):
 
             if not is_article_in_db(link):
                 add_article_to_db(title, link, date, first_crawl)
-    except:
+    except():
         print()
-        #telegram.msg_to_admin('❌ Failed to parse:\n' + feed_url)
+        telegram.msg_to_admin('❌ Failed to parse:\n' + feed_url)
 
 
 def get_redirect_url(url):
@@ -62,6 +62,7 @@ def is_article_in_db(url):
     else:
         return True
 
+
 def should_published(url):
     query = {'link': url}
     if db.urls.count_documents(query) == 0:
@@ -70,6 +71,7 @@ def should_published(url):
         return True
     else:
         return False
+
 
 def add_article_to_db(title, link, date, is_pub):
     article = {'title': title, 'link': link, 'date': date, 'is_pub': is_pub}
@@ -87,3 +89,5 @@ if __name__ == '__main__':
         index += 1
         print('Processing feed #' + str(index) + ' : ' + line)
         read_article_feed(line)
+
+    db.mark_as_read_all()
