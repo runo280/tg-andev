@@ -1,4 +1,5 @@
-# tg-andev
+# Androiddev Feed
 
-Telegram bot that posts android news in a feed 
+A bot that checks the feed of androiddev related blogs and publishes new posts in a Telegram channel
+
 https://t.me/andev_feed
