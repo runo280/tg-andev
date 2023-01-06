@@ -1,0 +1,35 @@
+name: Feeds Checker
+
+on:
+  schedule:
+    - cron:  '0 0 1 * *' # At 00:00 on day-of-month 1.
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run
+        env:
+          muser: ${{ secrets.muser }}
+          mpass: ${{ secrets.mpass }}
+          murl: ${{ secrets.murl }}
+          bot_token: ${{ secrets.bot_token }}
+          channel_id: ${{ secrets.channel_id }}
+          chat_id: ${{ secrets.chat_id }}
+          footer: ${{ secrets.footer }}
+        run: |
+          python feeds_checker.py

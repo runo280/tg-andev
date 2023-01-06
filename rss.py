@@ -9,7 +9,7 @@ def get_feeds_url():
     return [row.rstrip('\n') for row in open('feeds.txt')]
 
 
-def is_url_ok(url):
+def is_url_ok(url, report=False):
     try:
         r = requests.head(url)
         if r.status_code == 200:
@@ -17,11 +17,13 @@ def is_url_ok(url):
             return True
         else:
             print('StatusCode is {}: {} '.format(r.status_code, url))
-            telegram.msg_to_admin('⚠️ StatusCode is ' + str(r.status_code) + ':\n' + url)
+            if report:
+                telegram.msg_to_admin('⚠️ StatusCode is ' + str(r.status_code) + ':\n' + url)
             return True
     except requests.ConnectionError:
         print('Failed to connect: ' + url)
-        telegram.msg_to_admin('🚫 Failed to connect:\n' + url)
+        if report:
+            telegram.msg_to_admin('🚫 Failed to connect:\n' + url)
         return False
 
 
